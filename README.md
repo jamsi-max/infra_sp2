@@ -1,27 +1,26 @@
-# api_final_yatube
-## API для проекта yatube
-
-Yatube это социальный блог в котором реализован следующий функционал.
-
-- Добавление постов
-- Возможность добовлять комментарии к постам
-- Возможность подписываться на авторов постов
-- Принадлежность постов к группам
-- ✨Аутентификация с помощью JWT✨
-
-## Как запустить проект:
-
-Клонировать репозиторий и перейти в него в командной строке:
-
+# infra_sp2
+✨  ✨  ✨  
+`Проект Infra_sp2 это REST API с использованием контейнерезации (docker) для проекта YaMDb который собирает отзывы (Review) пользователей на произведения (Titles).`
+✨ ✨  ✨  
+## **Запуск проекта**
+##### 1. Клонировать репозиторий
+#
 ```sh
-git clone https://github.com/jamsi-max/api_final_yatube.git
+git clone https://github.com/jamsi-max/infra_sp2.git
 ```
+##### 2. Сооздать файл ".env" рядом с **"manage .py"** следующего содержания:
+#
+>DB_ENGINE=django.db.backends.postgresql 
+DB_NAME=postgres
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres (установите свой)
+DB_HOST=db
+DB_PORT=5432
+
+##### 3. Cоздать и активировать виртуальное окружение:
+#
 ```sh
-cd api_final_yatube
-```
-Cоздать и активировать виртуальное окружение:
-```sh
-python3 -m venv env
+python -m venv env
 ```
 > для Linux:
 ```sh
@@ -31,36 +30,57 @@ source env/bin/activate
 ```sh
 venv\Scripts\acrivate
 ```
-Обновить pip:
+
+##### 4. Обновить pip:
+#
 ```sh
 python -m pip install --upgrade pip
 ```
-Установить зависимости из файла requirements.txt:
+##### 5. Установить зависимости из файла requirements.txt:
+#
 ```sh
 pip install -r requirements.txt
 ```
-Выполнить миграции:
+##### 6. Перейти в директорию "infra_sp2\infra" где находиться файл **"docker-compose.yaml"** запустить консоль и выполнить команду для запуска проекта в контейнерах:
+`Внимание! Docker уже должен быть установлен и запущен`
 ```sh
-python3 manage.py migrate
+docker-compose up -d
 ```
-Запустить проект:
-> для Windows:
+##### 7. Выполнить миграции:
+#
 ```sh
-python manage.py runserver
+docker-compose exec web python manage.py migrate
 ```
-> для Linux:
+##### 8. Заполнить базу тестовыми данными:
+#
 ```sh
-python3 manage.py runserver
+docker-compose exec web python manage.py loaddata fixtures.json
 ```
-## Автор
+##### 9. Создать суперпользователя:
+#
+```sh
+docker-compose exec web python manage.py createsuperuser
+```
+##### 10. При необходимости собрать статику если стили и картинки не отображаются:
+#
+```sh
+docker-compose exec web python manage.py collectstatic --no-input
+```
 
+### Проект доступен по адресу http://localhost
+#
+##### Для остановки проекта используйте команду:
+#
 ```sh
-Maxon ©
+docker-compose down
 ```
 
 ## Лицензия
 
 MIT
+
+**Бесплатный софт**
+##### © Copyright **[jamsi-max](https://github.com/jamsi-max)**
 
 
 
