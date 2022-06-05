@@ -1,6 +1,7 @@
 # infra_sp2
 ✨  ✨  ✨  
-`Проект Infra_sp2 это REST API с использованием контейнерезации (docker) для проекта YaMDb который собирает отзывы (Review) пользователей на произведения (Titles).`
+`Проект Infra_sp2 это REST API с использованием контейнерезации (docker) для проекта YaMDb который собирает отзывы (Review) пользователей на произведения (Titles).
+`
 ✨ ✨  ✨  
 ## **Запуск проекта**
 ##### 1. Клонировать репозиторий
@@ -10,12 +11,12 @@ git clone https://github.com/jamsi-max/infra_sp2.git
 ```
 ##### 2. Сооздать файл ".env" рядом с **"manage .py"** следующего содержания:
 #
->DB_ENGINE=django.db.backends.postgresql 
-DB_NAME=postgres
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres (установите свой)
-DB_HOST=db
-DB_PORT=5432
+> DB_ENGINE=django.db.backends.postgresql
+> DB_NAME=postgres
+> POSTGRES_USER=postgres
+> POSTGRES_PASSWORD=postgres
+> DB_HOST=db
+> DB_PORT=5432
 
 ##### 3. Cоздать и активировать виртуальное окружение:
 #
