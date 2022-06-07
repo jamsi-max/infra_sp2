@@ -68,8 +68,13 @@ docker-compose exec web python manage.py createsuperuser
 docker-compose exec web python manage.py collectstatic --no-input
 ```
 
-### Проект доступен по адресу http://localhost
+### Проект доступен по адресу http://localhost/redoc
 #
+### Перед остановкой проекта создать резервную копию базы:
+#
+```sh
+docker-compose exec web python manage.py dumpdata > /app/api_yamdb/fixtures.json
+```
 ##### Для остановки проекта используйте команду:
 #
 ```sh
@@ -81,6 +86,8 @@ docker-compose down
 MIT
 
 **Бесплатный софт**
+##### Автор проекта: Макс
+##### Связь с автором(телеграмм): https://t.me/jony2024 
 ##### © Copyright **[jamsi-max](https://github.com/jamsi-max)**
 
 
